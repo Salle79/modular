@@ -1,6 +1,6 @@
-package com.example.multimodule.application;
+package web;
 
-import com.example.multimodule.service.MyService;
+import library.MyService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@ComponentScan(basePackages = "com.example.multimodule")
+@ComponentScan(basePackages = "library")
 public class DemoApplication {
 
 	private final MyService myService;
@@ -20,7 +20,7 @@ public class DemoApplication {
 
 	@GetMapping("/")
 	public String home() {
-		return myService.message();
+		return "hello " + myService.message();
 	}
 
 	public static void main(String[] args) {

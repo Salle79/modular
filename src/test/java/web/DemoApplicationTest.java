@@ -1,4 +1,4 @@
-package com.example.multimodule.application;
+package web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.multimodule.service.MyService;
+import library.MyService;
 
 @SpringBootTest
 public class DemoApplicationTest {

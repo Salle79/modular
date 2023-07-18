@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>salle</groupId>
-	<artifactId>library</artifactId>
-	<version>3.0.0</version>
-	<name>multi-module-library-complete</name>
+	<artifactId>module_library</artifactId>
+	<version>4.0.0</version>
+	<name>library-module</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

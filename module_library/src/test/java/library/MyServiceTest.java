@@ -1,4 +1,4 @@
-package com.example.multimodule.service;
+package library;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
