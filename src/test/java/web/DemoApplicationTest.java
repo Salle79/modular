@@ -2,22 +2,27 @@ package web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
 
+import module.library.api.INameService;
+import module.security.api.IValidationService;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import library.MyService;
-
 @SpringBootTest
 public class DemoApplicationTest {
-
 	@Autowired
-	private MyService myService;
+	private IValidationService getValidationService;
+	@Autowired
+	private INameService getNameService;
+	public static final String SALLE = "Salle";
 
 	@Test
 	public void contextLoads() {
-		assertThat(myService.message()).isNotNull();
+		assertThat(getValidationService).isNotNull();
+		String ActualNameValue = getNameService.getName(SALLE);
+		String ExpectedNameValue = SALLE;
+		assertThat(ActualNameValue).isEqualTo(ExpectedNameValue);
 	}
 
 }

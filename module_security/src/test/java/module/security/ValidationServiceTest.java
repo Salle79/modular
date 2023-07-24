@@ -1,22 +1,23 @@
-package library;
+package module.security;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import module.security.api.IValidationService;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest("service.message=Hello")
-public class MyServiceTest {
+@SpringBootTest
+public class ValidationServiceTest {
 
 	@Autowired
-	private MyService myService;
+	private IValidationService validationService;
 
 	@Test
 	public void contextLoads() {
-		assertThat(myService.message()).isNotNull();
+		assertThat(validationService.validateUserName("Salle")).isTrue();
 	}
 
 	@SpringBootApplication
