@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>salle</groupId>
-	<artifactId>module_library</artifactId>
+	<artifactId>module_multitenant</artifactId>
 	<version>1.0.0</version>
-	<name>library-module</name>
+	<name>module-multitenant</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

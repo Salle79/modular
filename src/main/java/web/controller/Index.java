@@ -17,7 +17,7 @@ public class Index {
     public String index() {
         var IsThisTrue = validationService.validateUserName("Salle");
         if (IsThisTrue) {
-            return "hello " + getNameService;
+            return "hello " + getNameService.getName("Salle");
         }
         else {
             return "hello without name";

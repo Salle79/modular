@@ -27,7 +27,7 @@
 		</dependency>
 		<dependency>
 			<groupId>salle</groupId>
-			<artifactId>module_library</artifactId>
+			<artifactId>module_multitenant</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
