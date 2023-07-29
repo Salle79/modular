@@ -11,10 +11,15 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 public class Index {
 
+    private final INameService getNameService;
+    private final IValidationService validationService;
+
     @Autowired
-    INameService getNameService;
-    @Autowired
-    private IValidationService validationService;
+    public Index(INameService getNameService, IValidationService validationService) {
+        this.getNameService = getNameService;
+        this.validationService = validationService;
+    }
+
     @PreAuthorize("permitAll()")
     @RequestMapping("/")
     public String index() {

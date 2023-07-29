@@ -26,8 +26,12 @@ public class SecurityPropertiesTest {
     /**
      * The Environment object is used to fetch properties.
      */
+    private final Environment env;
+
     @Autowired
-    private Environment env;
+    public SecurityPropertiesTest(Environment env) {
+        this.env = env;
+    }
 
     /**
      * This test validates the username and password from properties file.

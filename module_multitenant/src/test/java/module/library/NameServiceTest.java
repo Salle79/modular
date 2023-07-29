@@ -12,8 +12,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class NameServiceTest {
 
+	private final INameService nameServiceImpl;
+
 	@Autowired
-	private INameService nameServiceImpl;
+	public NameServiceTest(INameService nameServiceImpl) {
+		this.nameServiceImpl = nameServiceImpl;
+	}
 
 	@Test
 	public void contextLoads() {

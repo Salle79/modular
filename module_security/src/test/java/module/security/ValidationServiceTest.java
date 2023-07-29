@@ -15,8 +15,12 @@ import org.junit.jupiter.api.Test;
 @SpringBootTest
 public class ValidationServiceTest {
 
+	private final IValidationService validationService;
+
 	@Autowired
-	private IValidationService validationService;
+	public ValidationServiceTest(IValidationService validationService) {
+		this.validationService = validationService;
+	}
 
 	/**
 	 * Tests if the context properly loads and the userName validation logic works as expected.

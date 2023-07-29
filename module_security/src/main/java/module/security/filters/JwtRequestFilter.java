@@ -22,11 +22,14 @@ import java.io.IOException;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
+    private final JwtUtil jwtUtil;
 
     @Autowired
-    private JwtUtil jwtUtil;
+    public JwtRequestFilter(UserDetailsService userDetailsService, JwtUtil jwtUtil) {
+        this.userDetailsService = userDetailsService;
+        this.jwtUtil = jwtUtil;
+    }
 
     /**
      * Extracts the JWT token from the Authorization header, validates it and sets the authentication in the context.
@@ -50,6 +53,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             username = jwtUtil.extractUsername(jwt);
         }
 
+        SetSecurityContext(request, username, jwt);
+        filterChain.doFilter(request, response);
+    }
+
+    private void SetSecurityContext(HttpServletRequest request, String username, String jwt) {
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
@@ -61,6 +69,5 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         }
-        filterChain.doFilter(request, response);
     }
 }

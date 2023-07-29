@@ -24,11 +24,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Import(SecurityConfig.class)
 public class SecurityConfigTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+    private final MockMvc mockMvc;
+
+    private final UserDetailsService userDetailsService;
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    public SecurityConfigTest(MockMvc mockMvc, UserDetailsService userDetailsService) {
+        this.mockMvc = mockMvc;
+        this.userDetailsService = userDetailsService;
+    }
 
     /**
      * Tests if the /public endpoint is accessible to all users.

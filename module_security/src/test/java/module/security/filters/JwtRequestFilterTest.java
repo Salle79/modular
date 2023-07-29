@@ -17,18 +17,31 @@ import jakarta.servlet.FilterChain;
 import java.util.ArrayList;
 import static org.mockito.Mockito.*;
 
+/**
+ * Test class for {@link JwtRequestFilter}.
+ * Uses MockitoExtension for simplified mock creation and injection.
+ * It tests the behavior of the JwtRequestFilter when a HTTP request with JWT token is received.
+ */
 @ExtendWith(MockitoExtension.class)
 public class JwtRequestFilterTest {
-
     @Mock
     private UserDetailsService userDetailsService;
-
     @Mock
     private JwtUtil jwtUtil;
-
     @InjectMocks
     private JwtRequestFilter jwtRequestFilter;
 
+    /**
+     * Test the doFilterInternal method of {@link JwtRequestFilter}.
+     *
+     * This test mocks a HTTP request with JWT token and checks whether the correct
+     * methods are called on the UserDetailsService and JwtUtil.
+     *
+     * It also verifies if the correct UserDetails are set in the SecurityContextHolder
+     * after the request is processed by the JwtRequestFilter.
+     *
+     * @throws Exception if any error occurs during the method execution
+     */
     @Test
     public void testDoFilterInternal() throws Exception {
         // Create mock objects
